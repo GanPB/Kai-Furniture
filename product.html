@@ -49,26 +49,49 @@
 
       <div class="row g-4 g-lg-5">
         <div class="col-lg-7">
-          <div class="product-detail-media">
-            <img id="productImage" src="assets/images/products/product_01/01.jpg" alt="Portamacetas De Madera de kai Furniture">
+          <div id="productGallery" class="row g-2 g-sm-3 product-gallery">
+            <div class="col-6">
+              <figure class="gallery-item">
+                <img src="assets/images/products/product_01/01.jpg" alt="Portamacetas De Madera en sus dos alturas, versión nuez y versión natural">
+              </figure>
+            </div>
+            <div class="col-6">
+              <figure class="gallery-item">
+                <img src="assets/images/products/product_01/02.jpg" alt="Portamacetas De Madera junto a una ventana con plantas" loading="lazy">
+              </figure>
+            </div>
+            <div class="col-6">
+              <figure class="gallery-item">
+                <img src="assets/images/products/product_01/03.jpg" alt="Portamacetas Nuez de madera, 35 cm de alto" loading="lazy">
+              </figure>
+            </div>
+            <div class="col-6">
+              <figure class="gallery-item">
+                <img src="assets/images/products/product_01/04.jpg" alt="Portamacetas Natural de madera, 60 cm de alto" loading="lazy">
+              </figure>
+            </div>
           </div>
         </div>
+
         <div class="col-lg-5">
-          <p class="eyebrow mb-2">Colección</p>
-          <h1 id="productTitle" class="mb-2">Portamacetas De Madera</h1>
-          <p id="productPrice" class="product-detail-price">$13.000</p>
-          <p id="productDescription" class="text-muted-kai">
-            Hermoso portamacetas de madera para darle un look distinto a tu entorno
-          </p>
+          <div class="product-detail-info">
+            <p class="eyebrow mb-2">Colección</p>
+            <h1 id="productTitle" class="mb-3">Portamacetas De Madera</h1>
+            <p id="productPrice" class="product-detail-price">$13.000</p>
+            <p id="productDescription" class="text-muted-kai">
+              Hermoso portamacetas de madera para darle un look distinto a tu entorno
+            </p>
 
-          <div id="productVariants" class="product-variants d-none">
-            <p class="eyebrow mb-2">Elige tu versión</p>
-            <div id="variantButtons" class="d-flex flex-wrap gap-2"></div>
-          </div>
+            <div id="productVariants" class="product-variants">
+              <p class="eyebrow mb-2">Elige tu versión</p>
+              <div id="variantButtons" class="d-flex flex-wrap gap-2"></div>
+              <p id="variantNote" class="variant-note mt-3 mb-0"></p>
+            </div>
 
-          <div class="d-flex flex-wrap gap-3 mt-4">
-            <a href="contact" class="btn btn-kai">Consultar</a>
-            <a href="products" class="btn btn-kai-outline">Ver más productos</a>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="contact" class="btn btn-kai">Consultar</a>
+              <a href="products" class="btn btn-kai-outline">Ver más productos</a>
+            </div>
           </div>
         </div>
       </div>
@@ -109,59 +132,60 @@
         title: 'Portamacetas De Madera',
         description: 'Hermoso portamacetas de madera para darle un look distinto a tu entorno',
         price: '$13.000',
-        image: 'assets/images/products/product_01/01.jpg',
-        alt: 'Portamacetas De Madera de kai Furniture',
+        photos: [
+          { src: 'assets/images/products/product_01/01.jpg', alt: 'Portamacetas De Madera en sus dos alturas, versión nuez y versión natural' },
+          { src: 'assets/images/products/product_01/02.jpg', alt: 'Portamacetas De Madera junto a una ventana con plantas' },
+          { src: 'assets/images/products/product_01/03.jpg', alt: 'Portamacetas Nuez de madera, 35 cm de alto' },
+          { src: 'assets/images/products/product_01/04.jpg', alt: 'Portamacetas Natural de madera, 60 cm de alto' }
+        ],
         variants: [
-          {
-            name: 'Portamacetas Nuez',
-            image: 'assets/images/products/product_01/03.jpg',
-            alt: 'Portamacetas Nuez de madera, 35 cm de alto'
-          },
-          {
-            name: 'Portamacetas Natural',
-            image: 'assets/images/products/product_01/04.jpg',
-            alt: 'Portamacetas Natural de madera, 60 cm de alto'
-          }
+          { name: 'Portamacetas Nuez', photo: 'assets/images/products/product_01/03.jpg' },
+          { name: 'Portamacetas Natural', photo: 'assets/images/products/product_01/04.jpg' }
         ]
       },
       'ember-chair': {
         title: 'Sillón Ember',
         description: 'Un sillón amplio y envolvente en tonos tierra. Brazos bajos, respaldo alto y la cantidad justa de comodidad.',
         price: '$980.000',
-        image: 'assets/images/armchair.svg',
-        alt: 'El sillón Ember en tonos tierra',
+        photos: [
+          { src: 'assets/images/armchair.svg', alt: 'El sillón Ember en tonos tierra' }
+        ],
         variants: []
       },
       'oak-table': {
         title: 'Mesa Haven',
         description: 'Una mesa redonda de roble macizo con acabado aceitado a mano. Cuatro personas cómodas, seis cuando se suman los vecinos.',
         price: '$1.650.000',
-        image: 'assets/images/table.svg',
-        alt: 'La mesa de comedor Haven de roble',
+        photos: [
+          { src: 'assets/images/table.svg', alt: 'La mesa de comedor Haven de roble' }
+        ],
         variants: []
       },
       'halo-lamp': {
         title: 'Lámpara Halo',
         description: 'Un arco esbelto que se inclina sobre tu sillón de lectura. Luz cálida regulable y base de piedra.',
         price: '$420.000',
-        image: 'assets/images/lamp.svg',
-        alt: 'La lámpara de pie Halo',
+        photos: [
+          { src: 'assets/images/lamp.svg', alt: 'La lámpara de pie Halo' }
+        ],
         variants: []
       },
       'linen-bed': {
         title: 'Cama de Lino',
         description: 'Una cama plataforma tapizada en lino lavado. Perfil bajo, cabecero generoso y noches tranquilas.',
         price: '$1.890.000',
-        image: 'assets/images/bed.svg',
-        alt: 'La cama de lino tapizada en lino',
+        photos: [
+          { src: 'assets/images/bed.svg', alt: 'La cama de lino tapizada en lino' }
+        ],
         variants: []
       },
       'linea-shelf': {
         title: 'Estantería Linea',
         description: 'Una estantería alta de nogal con cuatro repisas abiertas. Delgada para el pasillo, firme para los buenos libros.',
         price: '$760.000',
-        image: 'assets/images/shelf.svg',
-        alt: 'La estantería Linea de nogal',
+        photos: [
+          { src: 'assets/images/shelf.svg', alt: 'La estantería Linea de nogal' }
+        ],
         variants: []
       }
     };
@@ -170,43 +194,82 @@
     const product = products[slug] || products['portamacetas'];
 
     document.title = product.title + ' — kai Furniture';
-
-    const image = document.getElementById('productImage');
-    image.src = product.image;
-    image.alt = product.alt;
-
     document.getElementById('productTitle').textContent = product.title;
     document.getElementById('productDescription').textContent = product.description;
     document.getElementById('productPrice').textContent = product.price;
 
-    if (product.variants.length) {
-      const wrapper = document.getElementById('productVariants');
-      const list = document.getElementById('variantButtons');
+    // Galería: todas las fotos del producto, en orden.
+    const gallery = document.getElementById('productGallery');
+    gallery.innerHTML = '';
+    gallery.classList.toggle('is-single', product.photos.length === 1);
 
+    product.photos.forEach(function (photo, index) {
+      const column = document.createElement('div');
+      column.className = product.photos.length > 1 ? 'col-6' : 'col-12';
+
+      const item = document.createElement('figure');
+      item.className = 'gallery-item';
+      item.setAttribute('data-photo', photo.src);
+
+      const image = document.createElement('img');
+      image.src = photo.src;
+      image.alt = photo.alt;
+      if (index > 0) {
+        image.loading = 'lazy';
+      }
+
+      item.appendChild(image);
+      column.appendChild(item);
+      gallery.appendChild(column);
+    });
+
+    // Versiones: resaltan la foto correspondiente y dejan la versión marcada.
+    const variantButtons = document.getElementById('variantButtons');
+    const variantNote = document.getElementById('variantNote');
+    const variantsBlock = document.getElementById('productVariants');
+
+    function selectVariant(variant, button) {
+      variantButtons.querySelectorAll('.variant-btn').forEach(function (other) {
+        other.classList.remove('is-active');
+        other.setAttribute('aria-pressed', 'false');
+      });
+
+      button.classList.add('is-active');
+      button.setAttribute('aria-pressed', 'true');
+
+      let selected = null;
+      gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+        const matches = item.getAttribute('data-photo') === variant.photo;
+        item.classList.toggle('is-selected', matches);
+        if (matches) {
+          selected = item;
+        }
+      });
+
+      if (selected) {
+        selected.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      variantNote.textContent = 'Versión seleccionada: ' + variant.name;
+    }
+
+    if (product.variants.length) {
       product.variants.forEach(function (variant) {
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'variant-btn';
         button.textContent = variant.name;
         button.setAttribute('aria-pressed', 'false');
-
         button.addEventListener('click', function () {
-          image.src = variant.image;
-          image.alt = variant.alt;
-
-          list.querySelectorAll('.variant-btn').forEach(function (other) {
-            other.classList.remove('is-active');
-            other.setAttribute('aria-pressed', 'false');
-          });
-
-          button.classList.add('is-active');
-          button.setAttribute('aria-pressed', 'true');
+          selectVariant(variant, button);
         });
 
-        list.appendChild(button);
+        variantButtons.appendChild(button);
       });
 
-      wrapper.classList.remove('d-none');
+      variantsBlock.classList.remove('d-none');
+    } else {
+      variantsBlock.classList.add('d-none');
     }
   </script>
 </body>
