@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Producto — kai Furniture</title>
+  <meta name="description" content="Conoce cada pieza de kai Furniture en detalle: materiales, medidas y versiones disponibles.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48x48.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page-producto">
+
+  <nav class="navbar navbar-expand-lg navbar-kai sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="home" aria-label="kai Furniture, inicio">
+        <img src="assets/images/logo-mark.png" alt="kai Furniture">
+        <span class="brand-wordmark">kai<span>Furniture</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#kaiNav" aria-controls="kaiNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="kaiNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="home">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="products">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact">Contacto</a></li>
+          <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+            <a class="btn btn-kai" href="contact">Agendar visita</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section-pad">
+    <div class="container">
+      <a href="products" class="product-back mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m6 6-6-6 6-6"/></svg>
+        Volver a productos
+      </a>
+
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-7">
+          <div class="product-detail-media">
+            <img id="productImage" src="assets/images/products/product_01/01.jpg" alt="Portamacetas De Madera de kai Furniture">
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <p class="eyebrow mb-2">Colección</p>
+          <h1 id="productTitle" class="mb-2">Portamacetas De Madera</h1>
+          <p id="productPrice" class="product-detail-price">$13.000</p>
+          <p id="productDescription" class="text-muted-kai">
+            Hermoso portamacetas de madera para darle un look distinto a tu entorno
+          </p>
+
+          <div id="productVariants" class="product-variants d-none">
+            <p class="eyebrow mb-2">Elige tu versión</p>
+            <div id="variantButtons" class="d-flex flex-wrap gap-2"></div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="contact" class="btn btn-kai">Consultar</a>
+            <a href="products" class="btn btn-kai-outline">Ver más productos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-kai">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <a href="home" class="footer-brand">
+            <img src="assets/images/logo-mark.png" alt="kai Furniture" class="footer-logo">
+            <span class="brand-wordmark footer-wordmark">kai<span>FURNITURE</span></span>
+          </a>
+        </div>
+        <div class="col-12 col-lg-5">
+          <h5>Escríbenos</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:kaifurniturela@gmail.com">kaifurniturela@gmail.com</a></li>
+            <li><a href="tel:+56955550142">+56 9 5555 0142</a></li>
+            <li><a href="contact">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
+        <span>&copy; <span id="year">2026</span> kai Furniture. Todos los derechos reservados.</span>
+        <span>Hecho con calma.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const products = {
+      'portamacetas': {
+        title: 'Portamacetas De Madera',
+        description: 'Hermoso portamacetas de madera para darle un look distinto a tu entorno',
+        price: '$13.000',
+        image: 'assets/images/products/product_01/01.jpg',
+        alt: 'Portamacetas De Madera de kai Furniture',
+        variants: [
+          {
+            name: 'Portamacetas Nuez',
+            image: 'assets/images/products/product_01/03.jpg',
+            alt: 'Portamacetas Nuez de madera, 35 cm de alto'
+          },
+          {
+            name: 'Portamacetas Natural',
+            image: 'assets/images/products/product_01/04.jpg',
+            alt: 'Portamacetas Natural de madera, 60 cm de alto'
+          }
+        ]
+      },
+      'ember-chair': {
+        title: 'Sillón Ember',
+        description: 'Un sillón amplio y envolvente en tonos tierra. Brazos bajos, respaldo alto y la cantidad justa de comodidad.',
+        price: '$980.000',
+        image: 'assets/images/armchair.svg',
+        alt: 'El sillón Ember en tonos tierra',
+        variants: []
+      },
+      'oak-table': {
+        title: 'Mesa Haven',
+        description: 'Una mesa redonda de roble macizo con acabado aceitado a mano. Cuatro personas cómodas, seis cuando se suman los vecinos.',
+        price: '$1.650.000',
+        image: 'assets/images/table.svg',
+        alt: 'La mesa de comedor Haven de roble',
+        variants: []
+      },
+      'halo-lamp': {
+        title: 'Lámpara Halo',
+        description: 'Un arco esbelto que se inclina sobre tu sillón de lectura. Luz cálida regulable y base de piedra.',
+        price: '$420.000',
+        image: 'assets/images/lamp.svg',
+        alt: 'La lámpara de pie Halo',
+        variants: []
+      },
+      'linen-bed': {
+        title: 'Cama de Lino',
+        description: 'Una cama plataforma tapizada en lino lavado. Perfil bajo, cabecero generoso y noches tranquilas.',
+        price: '$1.890.000',
+        image: 'assets/images/bed.svg',
+        alt: 'La cama de lino tapizada en lino',
+        variants: []
+      },
+      'linea-shelf': {
+        title: 'Estantería Linea',
+        description: 'Una estantería alta de nogal con cuatro repisas abiertas. Delgada para el pasillo, firme para los buenos libros.',
+        price: '$760.000',
+        image: 'assets/images/shelf.svg',
+        alt: 'La estantería Linea de nogal',
+        variants: []
+      }
+    };
+
+    const slug = new URLSearchParams(window.location.search).get('p');
+    const product = products[slug] || products['portamacetas'];
+
+    document.title = product.title + ' — kai Furniture';
+
+    const image = document.getElementById('productImage');
+    image.src = product.image;
+    image.alt = product.alt;
+
+    document.getElementById('productTitle').textContent = product.title;
+    document.getElementById('productDescription').textContent = product.description;
+    document.getElementById('productPrice').textContent = product.price;
+
+    if (product.variants.length) {
+      const wrapper = document.getElementById('productVariants');
+      const list = document.getElementById('variantButtons');
+
+      product.variants.forEach(function (variant) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'variant-btn';
+        button.textContent = variant.name;
+        button.setAttribute('aria-pressed', 'false');
+
+        button.addEventListener('click', function () {
+          image.src = variant.image;
+          image.alt = variant.alt;
+
+          list.querySelectorAll('.variant-btn').forEach(function (other) {
+            other.classList.remove('is-active');
+            other.setAttribute('aria-pressed', 'false');
+          });
+
+          button.classList.add('is-active');
+          button.setAttribute('aria-pressed', 'true');
+        });
+
+        list.appendChild(button);
+      });
+
+      wrapper.classList.remove('d-none');
+    }
+  </script>
+</body>
+</html>

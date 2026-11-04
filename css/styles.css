@@ -299,6 +299,72 @@ a:hover {
   color: var(--kai-page-text);
 }
 
+/* Product detail */
+.product-back {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--kai-page-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.product-back:hover {
+  color: var(--kai-ink);
+}
+
+.product-detail-media {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--kai-page-line);
+  background-color: var(--kai-accent);
+}
+
+.product-detail-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-detail-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--kai-page-text);
+  margin-bottom: 1rem;
+}
+
+.product-variants {
+  border-top: 1px solid var(--kai-page-line);
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+}
+
+.variant-btn {
+  background-color: transparent;
+  border: 1px solid var(--kai-page-line);
+  border-radius: 2px;
+  padding: 0.6rem 1rem;
+  font-family: var(--kai-font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kai-page-text);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.variant-btn:hover {
+  border-color: var(--kai-brown);
+}
+
+.variant-btn.is-active {
+  border-color: var(--kai-ink);
+  background-color: rgba(49, 35, 30, 0.08);
+}
+
 /* Section headers */
 .section-head {
   display: flex;
