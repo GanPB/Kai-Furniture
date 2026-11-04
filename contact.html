@@ -16,7 +16,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-kai sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html" aria-label="kai Furniture, inicio">
+      <a class="navbar-brand" href="home" aria-label="kai Furniture, inicio">
         <img src="assets/images/logo-mark.png" alt="kai Furniture">
         <span class="brand-wordmark">kai<span>Furniture</span></span>
       </a>
@@ -25,11 +25,11 @@
       </button>
       <div class="collapse navbar-collapse" id="kaiNav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html">Productos</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="home">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="products">Productos</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact">Contacto</a></li>
           <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-            <a class="btn btn-kai" href="products.html">Comprar ahora</a>
+            <a class="btn btn-kai" href="products">Comprar ahora</a>
           </li>
         </ul>
       </div>
@@ -78,12 +78,11 @@
                 </div>
                 <div class="col-12">
                   <label for="subject" class="form-label">Asunto</label>
-                  <select class="form-select" id="subject" name="subject" required>
+                  <select class="form-select" id="subject" name="subject">
                     <option value="" selected disabled>Elige un tema</option>
                     <option value="Consulta sobre un producto">Consulta sobre un producto</option>
                     <option value="Proyecto a medida">Proyecto a medida</option>
                   </select>
-                  <div class="invalid-feedback">Elige un tema.</div>
                 </div>
                 <div class="col-12">
                   <label for="message" class="form-label">Mensaje</label>
@@ -106,7 +105,7 @@
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-7">
-          <a href="index.html" class="footer-brand">
+          <a href="home" class="footer-brand">
             <img src="assets/images/logo-mark.png" alt="kai Furniture" class="footer-logo">
             <span class="brand-wordmark footer-wordmark">kai<span>FURNITURE</span></span>
           </a>
@@ -116,7 +115,7 @@
           <ul class="footer-links">
             <li><a href="mailto:kaifurniturela@gmail.com">kaifurniturela@gmail.com</a></li>
             <li><a href="tel:+56955550142">+56 9 5555 0142</a></li>
-            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="contact">Contacto</a></li>
           </ul>
         </div>
       </div>
@@ -152,6 +151,10 @@
       errorAlert.classList.add('d-none');
 
       const data = Object.fromEntries(new FormData(form).entries());
+      data.subject = data.subject || 'Consulta general';
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000);
 
       try {
         const response = await fetch('https://api.web3forms.com/submit', {
@@ -160,7 +163,8 @@
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
+          signal: controller.signal
         });
 
         const result = await response.json();
@@ -172,8 +176,21 @@
         form.classList.add('d-none');
         successAlert.classList.remove('d-none');
       } catch (error) {
+        console.error('Error al enviar el formulario:', error);
+
+        if (error instanceof TypeError || error.name === 'AbortError') {
+          const redirect = document.createElement('input');
+          redirect.type = 'hidden';
+          redirect.name = 'redirect';
+          redirect.value = new URL('gracias', window.location.href).href;
+          form.appendChild(redirect);
+          form.submit();
+          return;
+        }
+
         errorAlert.classList.remove('d-none');
       } finally {
+        clearTimeout(timeoutId);
         submitButton.disabled = false;
         submitButton.textContent = submitLabel;
       }
