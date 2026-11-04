@@ -61,11 +61,10 @@
               <a href="mailto:kaifurniturela@gmail.com">kaifurniturela@gmail.com</a>.
             </div>
 
-            <form id="contactForm" action="https://formsubmit.co/kaifurniturela@gmail.com" method="POST" novalidate>
-              <input type="hidden" name="_subject" value="Nuevo mensaje desde kai Furniture">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+              <input type="hidden" name="access_key" value="c5a5fe27-9f51-4419-9eff-b03866525883">
+              <input type="hidden" name="from_name" value="kai Furniture">
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
               <div class="row g-3">
                 <div class="col-md-6">
                   <label for="name" class="form-label">Nombre</label>
@@ -155,24 +154,18 @@
       const data = Object.fromEntries(new FormData(form).entries());
 
       try {
-        const response = await fetch('https://formsubmit.co/ajax/kaifurniturela@gmail.com', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({
-            ...data,
-            _subject: 'Nuevo mensaje desde kai Furniture',
-            _template: 'table',
-            _captcha: 'false'
-          })
+          body: JSON.stringify(data)
         });
 
         const result = await response.json();
-        const needsActivation = /activat/i.test(result.message || '');
 
-        if (!response.ok || (String(result.success) === 'false' && !needsActivation)) {
+        if (!response.ok || result.success !== true) {
           throw new Error(result.message || 'No se pudo enviar el mensaje.');
         }
 
