@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="A round oak dining table with a vase">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f3e8"/>
+      <stop offset="1" stop-color="#e9dfb8"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#84714f"/>
+      <stop offset="1" stop-color="#6b5a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg3)"/>
+  <circle cx="150" cy="140" r="90" fill="#efe6c8" opacity="0.8"/>
+  <rect y="470" width="800" height="130" fill="#d8c98f"/>
+  <ellipse cx="400" cy="500" rx="250" ry="32" fill="#c9b982" opacity="0.55"/>
+  <g>
+    <ellipse cx="400" cy="330" rx="250" ry="70" fill="url(#wood)"/>
+    <ellipse cx="400" cy="322" rx="250" ry="70" fill="#9a8661"/>
+    <path d="M330 380l-16 110M470 380l16 110M400 392v100" stroke="#4f332b" stroke-width="22" stroke-linecap="round"/>
+    <path d="M310 480h180" stroke="#4f332b" stroke-width="18" stroke-linecap="round"/>
+    <g>
+      <path d="M392 320c-6-40 6-70 8-88 2 18 14 48 8 88z" fill="#84714f"/>
+      <path d="M400 320c0-30-16-44-22-58 12 6 26 24 26 58z" fill="#9a8661"/>
+      <path d="M404 320c2-26 18-38 26-50-10 4-24 22-26 50z" fill="#9a8661"/>
+      <rect x="380" y="240" width="40" height="86" rx="14" fill="#e3d888"/>
+    </g>
+    <rect x="250" y="300" width="60" height="18" rx="9" fill="#efe6c8"/>
+  </g>
+</svg>

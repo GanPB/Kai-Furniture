@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="A linen upholstered bed">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f3e8"/>
+      <stop offset="1" stop-color="#e9dfb8"/>
+    </linearGradient>
+    <linearGradient id="linen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e3d888"/>
+      <stop offset="1" stop-color="#d6c47f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg5)"/>
+  <rect x="560" y="90" width="180" height="220" rx="16" fill="#efe6c8" opacity="0.8"/>
+  <rect y="470" width="800" height="130" fill="#d8c98f"/>
+  <ellipse cx="400" cy="505" rx="290" ry="32" fill="#c9b982" opacity="0.55"/>
+  <g>
+    <rect x="160" y="180" width="480" height="200" rx="30" fill="#84714f"/>
+    <rect x="180" y="200" width="440" height="170" rx="24" fill="url(#linen)"/>
+    <rect x="140" y="340" width="520" height="110" rx="26" fill="#faf7ef"/>
+    <rect x="140" y="400" width="520" height="60" rx="22" fill="#9a8661"/>
+    <rect x="210" y="280" width="150" height="80" rx="24" fill="#faf7ef" transform="rotate(-4 285 320)"/>
+    <rect x="440" y="280" width="150" height="80" rx="24" fill="#faf7ef" transform="rotate(4 515 320)"/>
+    <rect x="150" y="440" width="40" height="40" rx="8" fill="#31231e"/>
+    <rect x="610" y="440" width="40" height="40" rx="8" fill="#31231e"/>
+    <rect x="160" y="455" width="480" height="30" rx="12" fill="#e3d888"/>
+    <rect x="520" y="380" width="130" height="70" rx="16" fill="#84714f"/>
+  </g>
+</svg>

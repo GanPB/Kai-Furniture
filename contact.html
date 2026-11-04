@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto — kai Furniture</title>
+  <meta name="description" content="Contáctate con kai Furniture. Consulta por una pieza o inicia un proyecto a medida.">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page-contacto">
+
+  <nav class="navbar navbar-expand-lg navbar-kai sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" aria-label="kai Furniture, inicio">
+        <img src="assets/images/logo-mark.png" alt="kai Furniture">
+        <span class="brand-wordmark">kai<span>Furniture</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#kaiNav" aria-controls="kaiNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="kaiNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contacto</a></li>
+          <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+            <a class="btn btn-kai" href="products.html">Comprar ahora</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <p class="eyebrow mb-2">Contacto</p>
+      <h1>Hablemos de muebles</h1>
+      <p>Escríbenos</p>
+    </div>
+  </header>
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-8 mx-auto">
+          <div class="contact-card">
+            <h2 class="mb-1" style="font-size: 2rem;">Envía un mensaje</h2>
+            <p class="text-muted-kai mb-4">Cuéntanos un poco sobre lo que buscas.</p>
+
+            <div id="formSuccess" class="alert alert-success d-none" role="alert">
+              Gracias — tu mensaje está en camino. Te contactaremos en breve.
+            </div>
+
+            <div id="formError" class="alert alert-danger d-none" role="alert">
+              No pudimos enviar tu mensaje. Escríbenos directamente a
+              <a href="mailto:kaifurniturela@gmail.com">kaifurniturela@gmail.com</a>.
+            </div>
+
+            <form id="contactForm" action="https://formsubmit.co/kaifurniturela@gmail.com" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="Nuevo mensaje desde kai Furniture">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required>
+                  <div class="invalid-feedback">Cuéntanos tu nombre.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="tu@correo.com" required>
+                  <div class="invalid-feedback">Ingresa un correo válido.</div>
+                </div>
+                <div class="col-12">
+                  <label for="subject" class="form-label">Asunto</label>
+                  <select class="form-select" id="subject" name="subject" required>
+                    <option value="" selected disabled>Elige un tema</option>
+                    <option value="Consulta sobre un producto">Consulta sobre un producto</option>
+                    <option value="Proyecto a medida">Proyecto a medida</option>
+                  </select>
+                  <div class="invalid-feedback">Elige un tema.</div>
+                </div>
+                <div class="col-12">
+                  <label for="message" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+                  <div class="invalid-feedback">Escribe un mensaje breve.</div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-kai">Enviar mensaje</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-kai">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <a href="index.html" class="footer-brand">
+            <img src="assets/images/logo-mark.png" alt="kai Furniture" class="footer-logo">
+            <span class="brand-wordmark footer-wordmark">kai<span>FURNITURE</span></span>
+          </a>
+        </div>
+        <div class="col-12 col-lg-5">
+          <h5>Escríbenos</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:kaifurniturela@gmail.com">kaifurniturela@gmail.com</a></li>
+            <li><a href="tel:+56955550142">+56 9 5555 0142</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
+        <span>&copy; <span id="year">2026</span> kai Furniture. Todos los derechos reservados.</span>
+        <span>Hecho con calma.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contactForm');
+    const successAlert = document.getElementById('formSuccess');
+    const errorAlert = document.getElementById('formError');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const submitLabel = submitButton.textContent;
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando…';
+      successAlert.classList.add('d-none');
+      errorAlert.classList.add('d-none');
+
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/kaifurniturela@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            ...data,
+            _subject: 'Nuevo mensaje desde kai Furniture',
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
+
+        const result = await response.json();
+        const needsActivation = /activat/i.test(result.message || '');
+
+        if (!response.ok || (String(result.success) === 'false' && !needsActivation)) {
+          throw new Error(result.message || 'No se pudo enviar el mensaje.');
+        }
+
+        form.classList.add('d-none');
+        successAlert.classList.remove('d-none');
+      } catch (error) {
+        errorAlert.classList.remove('d-none');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = submitLabel;
+      }
+    });
+  </script>
+</body>
+</html>

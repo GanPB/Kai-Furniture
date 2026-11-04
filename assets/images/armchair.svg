@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="A terracotta lounge armchair">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f3e8"/>
+      <stop offset="1" stop-color="#ecdfb4"/>
+    </linearGradient>
+    <linearGradient id="chair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a8661"/>
+      <stop offset="1" stop-color="#84714f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <rect x="80" y="120" width="240" height="300" rx="20" fill="#efe6c8" opacity="0.8"/>
+  <rect y="470" width="800" height="130" fill="#d8c98f"/>
+  <ellipse cx="400" cy="498" rx="210" ry="30" fill="#c9b982" opacity="0.55"/>
+  <g>
+    <rect x="290" y="200" width="220" height="200" rx="70" fill="url(#chair)"/>
+    <rect x="250" y="300" width="300" height="120" rx="46" fill="#6b5a3f"/>
+    <rect x="255" y="355" width="290" height="65" rx="30" fill="#d6c47f"/>
+    <rect x="225" y="330" width="70" height="100" rx="32" fill="#84714f"/>
+    <rect x="505" y="330" width="70" height="100" rx="32" fill="#84714f"/>
+    <path d="M310 430l-22 60M490 430l22 60" stroke="#31231e" stroke-width="14" stroke-linecap="round"/>
+    <rect x="320" y="290" width="160" height="80" rx="20" fill="#e3d888" transform="rotate(-6 400 330)"/>
+    <rect x="330" y="300" width="140" height="60" rx="16" fill="#faf7ef" transform="rotate(-6 400 330)"/>
+  </g>
+</svg>
