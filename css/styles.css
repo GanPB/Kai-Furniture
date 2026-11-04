@@ -11,6 +11,8 @@
   --kai-page-text: var(--kai-ink);
   --kai-page-muted: var(--kai-dark);
   --kai-page-line: rgba(49, 35, 30, 0.18);
+  --kai-font: Constantia, "Source Serif 4", Georgia, "Times New Roman", serif;
+  --bs-body-font-family: var(--kai-font);
 }
 
 html {
@@ -18,15 +20,16 @@ html {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--kai-font);
+  font-weight: 400;
   color: var(--kai-page-text);
   background-color: var(--kai-page);
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, .display-font {
-  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-weight: 600;
+  font-family: var(--kai-font);
+  font-weight: 700;
   color: var(--kai-page-text);
   letter-spacing: -0.01em;
 }
@@ -47,7 +50,7 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.68rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--kai-dark);
 }
 
@@ -97,7 +100,7 @@ a:hover {
 .brand-wordmark {
   display: flex;
   flex-direction: column;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--kai-font);
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 0.85;
@@ -106,9 +109,9 @@ a:hover {
 }
 
 .brand-wordmark span {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--kai-font);
   font-size: 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--kai-dark);
@@ -128,7 +131,7 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--kai-ink);
   padding: 0.5rem 0.85rem;
 }
@@ -152,8 +155,9 @@ a:hover {
 .btn-kai-outline {
   border-radius: 2px;
   padding: 0.75rem 1.6rem;
+  font-family: var(--kai-font);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
@@ -271,7 +275,7 @@ a:hover {
 
 .product-link {
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--kai-page-text);
@@ -289,7 +293,7 @@ a:hover {
 }
 
 .product-price {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--kai-font);
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--kai-page-text);
@@ -312,7 +316,7 @@ a:hover {
 
 .link-arrow {
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
@@ -388,7 +392,7 @@ a:hover {
 .quote-block {
   border-left: 2px solid var(--kai-accent);
   padding-left: 1.5rem;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--kai-font);
   font-size: 1.5rem;
   line-height: 1.45;
   color: var(--kai-page-text);
@@ -406,7 +410,7 @@ a:hover {
 
 .form-label {
   font-size: 0.68rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--kai-page-text);
@@ -451,7 +455,8 @@ a:hover {
 }
 
 .contact-info-item h6 {
-  font-family: "Inter", sans-serif;
+  font-family: var(--kai-font);
+  font-weight: 700;
   font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
