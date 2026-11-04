@@ -49,27 +49,31 @@
 
       <div class="row g-4 g-lg-5">
         <div class="col-lg-7">
-          <div id="productGallery" class="row g-2 g-sm-3 product-gallery">
-            <div class="col-6">
-              <figure class="gallery-item">
+          <div id="productCarousel" class="carousel slide product-carousel">
+            <div id="carouselIndicators" class="carousel-indicators"></div>
+            <div id="carouselInner" class="carousel-inner">
+              <div class="carousel-item active">
                 <img src="assets/images/products/product_01/01.jpg" alt="Portamacetas De Madera en sus dos alturas, versión nuez y versión natural">
-              </figure>
-            </div>
-            <div class="col-6">
-              <figure class="gallery-item">
+              </div>
+              <div class="carousel-item">
                 <img src="assets/images/products/product_01/02.jpg" alt="Portamacetas De Madera junto a una ventana con plantas" loading="lazy">
-              </figure>
-            </div>
-            <div class="col-6">
-              <figure class="gallery-item">
+              </div>
+              <div class="carousel-item">
                 <img src="assets/images/products/product_01/03.jpg" alt="Portamacetas Nuez de madera, 35 cm de alto" loading="lazy">
-              </figure>
-            </div>
-            <div class="col-6">
-              <figure class="gallery-item">
+              </div>
+              <div class="carousel-item">
                 <img src="assets/images/products/product_01/04.jpg" alt="Portamacetas Natural de madera, 60 cm de alto" loading="lazy">
-              </figure>
+              </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Foto anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Foto siguiente</span>
+            </button>
+            <span id="carouselCounter" class="carousel-counter">1 / 4</span>
           </div>
         </div>
 
@@ -198,18 +202,22 @@
     document.getElementById('productDescription').textContent = product.description;
     document.getElementById('productPrice').textContent = product.price;
 
-    // Galería: todas las fotos del producto, en orden.
-    const gallery = document.getElementById('productGallery');
-    gallery.innerHTML = '';
-    gallery.classList.toggle('is-single', product.photos.length === 1);
+    // Galería tipo carrusel: todas las fotos del producto, en orden.
+    const carouselElement = document.getElementById('productCarousel');
+    const carouselInner = document.getElementById('carouselInner');
+    const carouselIndicators = document.getElementById('carouselIndicators');
+    const carouselCounter = document.getElementById('carouselCounter');
+    const variantButtons = document.getElementById('variantButtons');
+    const variantNote = document.getElementById('variantNote');
+    const variantsBlock = document.getElementById('productVariants');
+
+    carouselInner.innerHTML = '';
+    carouselIndicators.innerHTML = '';
+    carouselElement.classList.toggle('is-single', product.photos.length === 1);
 
     product.photos.forEach(function (photo, index) {
-      const column = document.createElement('div');
-      column.className = product.photos.length > 1 ? 'col-6' : 'col-12';
-
-      const item = document.createElement('figure');
-      item.className = 'gallery-item';
-      item.setAttribute('data-photo', photo.src);
+      const slide = document.createElement('div');
+      slide.className = 'carousel-item' + (index === 0 ? ' active' : '');
 
       const image = document.createElement('img');
       image.src = photo.src;
@@ -218,39 +226,48 @@
         image.loading = 'lazy';
       }
 
-      item.appendChild(image);
-      column.appendChild(item);
-      gallery.appendChild(column);
+      slide.appendChild(image);
+      carouselInner.appendChild(slide);
+
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = index === 0 ? 'active' : '';
+      dot.setAttribute('data-bs-target', '#productCarousel');
+      dot.setAttribute('data-bs-slide-to', String(index));
+      dot.setAttribute('aria-label', 'Foto ' + (index + 1));
+
+      if (index === 0) {
+        dot.setAttribute('aria-current', 'true');
+      }
+
+      carouselIndicators.appendChild(dot);
     });
 
-    // Versiones: resaltan la foto correspondiente y dejan la versión marcada.
-    const variantButtons = document.getElementById('variantButtons');
-    const variantNote = document.getElementById('variantNote');
-    const variantsBlock = document.getElementById('productVariants');
+    carouselCounter.textContent = '1 / ' + product.photos.length;
 
-    function selectVariant(variant, button) {
-      variantButtons.querySelectorAll('.variant-btn').forEach(function (other) {
-        other.classList.remove('is-active');
-        other.setAttribute('aria-pressed', 'false');
-      });
+    // Versiones: marcan la versión elegida y saltan a su foto.
+    function updateVariantState(photoSrc) {
+      let matched = false;
 
-      button.classList.add('is-active');
-      button.setAttribute('aria-pressed', 'true');
+      product.variants.forEach(function (variant, index) {
+        const button = variantButtons.children[index];
+        if (!button) {
+          return;
+        }
 
-      let selected = null;
-      gallery.querySelectorAll('.gallery-item').forEach(function (item) {
-        const matches = item.getAttribute('data-photo') === variant.photo;
-        item.classList.toggle('is-selected', matches);
-        if (matches) {
-          selected = item;
+        const isMatch = variant.photo === photoSrc;
+        button.classList.toggle('is-active', isMatch);
+        button.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+
+        if (isMatch) {
+          matched = true;
+          variantNote.textContent = 'Versión seleccionada: ' + variant.name;
         }
       });
 
-      if (selected) {
-        selected.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (!matched) {
+        variantNote.textContent = '';
       }
-
-      variantNote.textContent = 'Versión seleccionada: ' + variant.name;
     }
 
     if (product.variants.length) {
@@ -260,8 +277,17 @@
         button.className = 'variant-btn';
         button.textContent = variant.name;
         button.setAttribute('aria-pressed', 'false');
+
         button.addEventListener('click', function () {
-          selectVariant(variant, button);
+          const index = product.photos.findIndex(function (photo) {
+            return photo.src === variant.photo;
+          });
+
+          if (index >= 0 && product.photos.length > 1 && typeof bootstrap !== 'undefined') {
+            bootstrap.Carousel.getOrCreateInstance(carouselElement).to(index);
+          }
+
+          updateVariantState(variant.photo);
         });
 
         variantButtons.appendChild(button);
@@ -271,6 +297,12 @@
     } else {
       variantsBlock.classList.add('d-none');
     }
+
+    carouselElement.addEventListener('slid.bs.carousel', function (event) {
+      const index = typeof event.to === 'number' ? event.to : 0;
+      carouselCounter.textContent = (index + 1) + ' / ' + product.photos.length;
+      updateVariantState(product.photos[index].src);
+    });
   </script>
 </body>
 </html>
