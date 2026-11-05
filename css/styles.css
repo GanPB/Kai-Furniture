@@ -886,8 +886,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(2rem, 3vw, 2.6rem);
-  height: clamp(2rem, 3vw, 2.6rem);
+  width: clamp(2.5rem, 4vw, 3.5rem);
+  height: clamp(2.5rem, 4vw, 3.5rem);
   border: 1px solid var(--kai-line);
   border-radius: 50%;
   color: var(--kai-ink);
@@ -902,8 +902,8 @@ a:hover {
 }
 
 .footer-social svg {
-  width: clamp(0.9rem, 1.4vw, 1.2rem);
-  height: clamp(0.9rem, 1.4vw, 1.2rem);
+  width: clamp(1.2rem, 2vw, 1.8rem);
+  height: clamp(1.2rem, 2vw, 1.8rem);
 }
 
 .footer-social .is-pending {
