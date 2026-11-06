@@ -172,6 +172,7 @@
           {
             name: 'Portamacetas Nuez',
             photo: 'assets/images/products/product_01/03.jpg',
+            tint: 'rgba(79, 51, 43, 0.16)',
             specs: [
               { label: 'Alto', value: '35 cm' },
               { label: 'Ancho', value: '28 cm' },
@@ -181,6 +182,7 @@
           {
             name: 'Portamacetas Natural',
             photo: 'assets/images/products/product_01/04.jpg',
+            tint: 'rgba(216, 180, 137, 0.45)',
             specs: [
               { label: 'Alto', value: '60 cm' },
               { label: 'Ancho', value: '26 cm' },
@@ -374,6 +376,10 @@
         button.className = 'variant-btn';
         button.textContent = variant.name;
         button.setAttribute('aria-pressed', 'false');
+
+        if (variant.tint) {
+          button.style.setProperty('--variant-tint', variant.tint);
+        }
 
         button.addEventListener('click', function () {
           const index = product.photos.findIndex(function (photo) {
