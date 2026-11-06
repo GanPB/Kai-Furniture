@@ -605,6 +605,33 @@ a:hover {
   background-color: rgba(49, 35, 30, 0.08);
 }
 
+.product-specs {
+  border-top: 1px solid var(--kai-page-line);
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+}
+
+.spec-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.spec-list li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--kai-page-line);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.spec-list li:last-child {
+  border-bottom: 0;
+}
+
+.spec-label {
+  font-weight: 700;
+}
+
 /* Section headers */
 .section-head {
   display: flex;

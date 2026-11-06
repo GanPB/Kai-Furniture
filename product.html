@@ -94,6 +94,12 @@
               <a href="contact" class="btn btn-kai">Consultar</a>
               <a href="products" class="btn btn-kai-outline">Ver más productos</a>
             </div>
+
+            <div id="productSpecs" class="product-specs d-none">
+              <p class="eyebrow mb-2">Especificaciones</p>
+              <ul id="specsList" class="spec-list"></ul>
+              <p id="specsHint" class="variant-note mb-0 d-none">Selecciona una versión para ver sus medidas.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -159,9 +165,18 @@
           { src: 'assets/images/products/product_01/03.jpg', alt: 'Portamacetas Nuez de madera, 35 cm de alto' },
           { src: 'assets/images/products/product_01/04.jpg', alt: 'Portamacetas Natural de madera, 60 cm de alto' }
         ],
+        specs: [],
         variants: [
-          { name: 'Portamacetas Nuez', photo: 'assets/images/products/product_01/03.jpg' },
-          { name: 'Portamacetas Natural', photo: 'assets/images/products/product_01/04.jpg' }
+          {
+            name: 'Portamacetas Nuez',
+            photo: 'assets/images/products/product_01/03.jpg',
+            specs: [
+              { label: 'Alto', value: '35 cm' },
+              { label: 'Ancho', value: '28 cm' },
+              { label: 'Ancho interior', value: '20 cm a 24 cm' }
+            ]
+          },
+          { name: 'Portamacetas Natural', photo: 'assets/images/products/product_01/04.jpg', specs: [] }
         ]
       },
       'lampara-shoji': {
@@ -172,6 +187,10 @@
           { src: 'assets/images/products/product_02/01.webp', alt: 'Lámpara Tipo Shoji de kai Furniture' },
           { src: 'assets/images/products/product_02/02.webp', alt: 'Lámpara Tipo Shoji de kai Furniture' },
           { src: 'assets/images/products/product_02/03.webp', alt: 'Lámpara Tipo Shoji de kai Furniture' }
+        ],
+        specs: [
+          { label: 'Alto', value: '40 cm' },
+          { label: 'Ancho', value: '28 cm' }
         ],
         variants: []
       },
@@ -248,6 +267,9 @@
     const variantButtons = document.getElementById('variantButtons');
     const variantNote = document.getElementById('variantNote');
     const variantsBlock = document.getElementById('productVariants');
+    const specsBlock = document.getElementById('productSpecs');
+    const specsList = document.getElementById('specsList');
+    const specsHint = document.getElementById('specsHint');
 
     carouselInner.innerHTML = '';
     carouselIndicators.innerHTML = '';
@@ -283,6 +305,29 @@
 
     carouselCounter.textContent = '1 / ' + product.photos.length;
 
+    // Especificaciones: lista vertical de medidas. Pueden depender de la versión elegida.
+    function renderSpecs(items, showHint) {
+      const specs = items || [];
+
+      specsList.innerHTML = '';
+
+      specs.forEach(function (spec) {
+        const item = document.createElement('li');
+        const label = document.createElement('span');
+        label.className = 'spec-label';
+        label.textContent = spec.label;
+        item.appendChild(label);
+        item.appendChild(document.createTextNode(': ' + spec.value));
+        specsList.appendChild(item);
+      });
+
+      specsList.classList.toggle('d-none', !specs.length);
+      specsHint.classList.toggle('d-none', !showHint || specs.length > 0);
+      specsBlock.classList.toggle('d-none', !specs.length && !showHint);
+    }
+
+    renderSpecs(product.specs, product.variants.length > 0);
+
     // Versiones: marcan la versión elegida y saltan a su foto.
     function updateVariantState(photoSrc) {
       let matched = false;
@@ -300,11 +345,13 @@
         if (isMatch) {
           matched = true;
           variantNote.textContent = 'Versión seleccionada: ' + variant.name;
+          renderSpecs(variant.specs, false);
         }
       });
 
       if (!matched) {
         variantNote.textContent = '';
+        renderSpecs(product.specs, product.variants.length > 0);
       }
     }
 
