@@ -605,9 +605,13 @@ a:hover {
   background-color: rgba(49, 35, 30, 0.08);
 }
 
-.product-specs {
+/* Separador entre bloques de la ficha, igual al de "Elige tu versión". */
+.product-spacer {
   border-top: 1px solid var(--kai-page-line);
   margin-top: 1.75rem;
+}
+
+.product-specs {
   padding-top: 1.25rem;
 }
 
@@ -618,10 +622,22 @@ a:hover {
 }
 
 .spec-list li {
-  padding: 0.45rem 0;
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.1rem;
   border-bottom: 1px solid var(--kai-page-line);
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+.spec-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--kai-brown);
 }
 
 .spec-list li:last-child {
