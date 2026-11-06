@@ -172,7 +172,8 @@
           {
             name: 'Portamacetas Nuez',
             photo: 'assets/images/products/product_01/03.jpg',
-            tint: 'rgba(79, 51, 43, 0.16)',
+            tint: 'rgba(79, 51, 43, 0.28)',
+            edge: 'rgba(79, 51, 43, 0.55)',
             specs: [
               { label: 'Alto', value: '35 cm' },
               { label: 'Ancho', value: '28 cm' },
@@ -379,6 +380,10 @@
 
         if (variant.tint) {
           button.style.setProperty('--variant-tint', variant.tint);
+        }
+
+        if (variant.edge) {
+          button.style.setProperty('--variant-edge', variant.edge);
         }
 
         button.addEventListener('click', function () {
