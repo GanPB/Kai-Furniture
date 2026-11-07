@@ -1,0 +1,38 @@
+// kai Furniture — Bootstrap 5.3.3 recortado
+//
+// Solo los módulos que el sitio realmente usa. Para regenerar:
+//   npm install --no-save bootstrap@5.3.3 sass
+//   npx sass --load-path=node_modules --style=compressed --no-source-map scss/kai.scss css/bootstrap.min.css
+//
+// Si agregas un componente nuevo (modal, dropdown, offcanvas…), agrégalo abajo
+// antes de "helpers" o su estilo no existirá.
+
+@import "functions";
+@import "variables";
+@import "variables-dark";
+@import "maps";
+@import "mixins";
+@import "utilities";
+
+// Layout
+@import "root";
+@import "reboot";
+@import "type";
+@import "images";
+@import "containers";
+@import "grid";
+
+// Componentes en uso
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "nav";
+@import "navbar";
+@import "alert";
+@import "carousel";
+
+// Helpers
+@import "helpers";
+
+// Utilidades
+@import "utilities/api";
